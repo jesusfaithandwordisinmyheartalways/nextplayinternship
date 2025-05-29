@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
  // Client Side function  Logs client-side errors to the backend , Keeps the UI secure with a generic message.
  const EventClientError = async (errorDetails: any) => {
     try {
-      await fetch("http://localhost:3001/event-register-client-side-error", {
+      await fetch("https://nextplayinternshipserver.onrender.com/event-register-client-side-error", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ errorDetails }),
@@ -86,7 +86,7 @@ const EventRegister:React.FC = () => {
                 
                 
             try {
-                const response = await fetch('http://localhost:3001/register/events', {
+                const response = await fetch('https://nextplayinternshipserver.onrender.com/register/events', {
                     method: 'POST',
                     headers: {'Content-Type':'application/json' },
                     body: JSON.stringify({ name, email, phoneNumber, textMessage, eventSelect })
