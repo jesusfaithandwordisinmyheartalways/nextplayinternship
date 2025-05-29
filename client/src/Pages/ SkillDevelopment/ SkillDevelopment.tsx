@@ -38,7 +38,7 @@ const SkillDevelopment:React.FC = () => {
       <div className='w-screen bg-white overflow-hidden p-10 custom-skill-dev-container  '>
 
         <div className='flex items-center justify-center p-10 mx-auto max-w-[800px]'>
-             <div className='sm:text-lg md:text-xl lg:text-3xl xl:text-4xl font-sans text-yellow-500'><h3>{Skill.title}</h3></div>
+             <div className='sm:text-lg md:text-lg lg:text-3xl xl:text-3xl font-sans text-yellow-500'><h3>{Skill.title}</h3></div>
         </div>
 
         <div  className='flex items-center justify-center p-10 mx-auto max-w-[800px]'>

@@ -85,3 +85,32 @@ input {
   transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
 }
+
+
+
+
+.custom-admin-login-container button {
+  margin-top: 29px;
+}
+
+
+
+
+@media screen and (max-width:420px) {
+
+      .custom-admin-login-container h3 {
+        font-size: 1rem;
+      }
+
+
+      .custom-admin-login-container button {
+        margin-top: 9px;
+      }
+
+      .custom-forgot-admin-password {
+        position: relative;
+        top:50px;
+        left: -91px;
+      }
+
+}

@@ -5,18 +5,20 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Apollo & WebSocket
+
 import { ApolloServer, gql } from 'apollo-server-express';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { Server } from 'socket.io';
 import http from 'http';
 import session from 'express-session';
 
-// MongoDB connection
+
 import connectMongoDB from './configuration/mongodb.js';
 
-// Main app routes
+
 import eventRegisterRoutes from './routes/eventRoute.js';
 import contactInquiriesRoutes from './routes/contactRoute.js';
 import adminLoginRoutes from './routes/adminLoginRoute.js';
@@ -27,7 +29,7 @@ import calendarEventRoutes from './routes/calendarEventsRoute.js';
 import volunteerRoutes from './routes/volunteerRoute.js';
 import donateRoutes from './routes/donateRequestRoute.js';
 
-// Error log routes
+
 import adminErrorLogDataRoutes from './errorLogData/adminErrorLog.js';
 import adminDashboardErrorLogDataRoutes from './errorLogData/adminDashboardErrorLog.js';
 import donateErrorRoutes from './errorLogData/donateNextPlayErrorLog.js';
@@ -36,6 +38,10 @@ import inquiryErrorRoutes from './errorLogData/generalInquiriesErrorLog.js';
 import adminLoginRecoveryErrorRoutes from './errorLogData/adminEmailRecoverErrorLog.js';
 
 dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
 
 const app = express();
 const server = http.createServer(app);
@@ -50,7 +56,6 @@ const io = new Server(server, {
 
 
 
-// Middleware setup
 app.use(cookieParser());
 app.use(express.json());
 app.use(helmet());
@@ -60,7 +65,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: false, // Set to true if using HTTPS
+    secure: true, 
     httpOnly: true,
     sameSite: 'lax',
   },
@@ -76,16 +81,16 @@ app.use(cors({
 
 
 
-// Connect to MongoDB
+
 connectMongoDB();
 
-// Attach socket.io to app
+
 app.locals.io = io;
 
 
 
 
-// Socket.IO setup
+
 io.on('connection', (socket) => {
   console.log('New client connected');
 
@@ -101,7 +106,7 @@ io.on('connection', (socket) => {
 
 
 
-// Error log routes
+
 app.use('/', adminErrorLogDataRoutes);
 app.use('/', adminDashboardErrorLogDataRoutes);
 app.use('/', donateErrorRoutes);
@@ -125,7 +130,7 @@ app.use('/donate', donateRoutes);
 
 
 
-// Apollo GraphQL setup
+
 const OUR_TEAM = [
   { data: 'MEET OUR TEAM' }
 ];
@@ -154,8 +159,10 @@ const startApolloServer = async () => {
     typeDefs,
     resolvers,
     cache: "bounded",
-    introspection: true,
-    plugins: [ApolloServerPluginLandingPageLocalDefault({ embed: true })],
+    introspection: process.env.NODE_ENV !== 'production', 
+    plugins: process.env.NODE_ENV !== 'production'
+      ? [ApolloServerPluginLandingPageLocalDefault({ embed: true })]
+      : [], 
   });
 
   await apolloServer.start();
@@ -167,7 +174,19 @@ startApolloServer();
 
 
 
-// Root route
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
+
+
+
+
 app.get('/', (req, res) => {
   res.end('backend server');
 });
@@ -175,7 +194,7 @@ app.get('/', (req, res) => {
 
 
 
-// Start server
+
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

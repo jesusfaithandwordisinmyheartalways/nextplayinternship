@@ -16,6 +16,8 @@
 @media screen and (max-width: 420px) {
 
 
+   
+
  .custom-footer {
     display: flex;
     flex-direction: column;
@@ -23,33 +25,41 @@
 
 
 .custom-footer img {
-    width: 143px;
+    width: 100%;
     object-fit: contain;
 }
 
 
 .custom-footer-two {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 31px;
 
 }
 
 
 .custom-footer-two img {
-    width: 80px;
+    width: 71px;
     object-fit: contain;
 }
 
-
-
-
-
+.custom-footer-two .custom-download-app {
+    font-size: 0.9rem;
+}
 
 
 
     .custom-footer-three {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+        gap:40px;
+        width: 100%;
     }
 
 

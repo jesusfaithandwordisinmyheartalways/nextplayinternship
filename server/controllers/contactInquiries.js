@@ -52,7 +52,7 @@ const contactInquiries = async (req, res) => {
 
 
        const clientEmailData = {
-        from: process.env.GMAIL_ACCOUNT,
+        from: `Client Contact Next Play Nation Inquiry" <${process.env.GMAIL_ACCOUNT}>`,
         to: process.env.GMAIL_ACCOUNT,
         subject: `Client Inquiry Submit From Next Play Nation Website`,
         text: `First Name: ${name}\nLast Name: ${lastName}\nEmail: ${emailAddress}\nClient Contact Number: ${telephone}\nMessage: ${textMessage}`,

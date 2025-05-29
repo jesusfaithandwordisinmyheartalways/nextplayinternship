@@ -8,7 +8,7 @@ import rateLimit from 'express-rate-limit'
 
 
 export const donateRequestLimit = rateLimit({
-    windowMs: 24 * 60 * 60 * 1000, // 24 hours
+    windowMs: 24 * 60 * 60 * 1000, 
     max: 5, 
     standardHeaders: true,
     legacyHeaders: false,

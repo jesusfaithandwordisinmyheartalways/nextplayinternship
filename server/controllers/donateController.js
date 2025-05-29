@@ -57,7 +57,7 @@ clientDonateEmail .verify((error, success) => {
 
 
             const clientDonateForm = {
-                from: process.env.GMAIL_ACCOUNT,
+                from: `Client Donation to Next Play Nation" <${process.env.GMAIL_ACCOUNT}>`,
                 to: process.env.GMAIL_ACCOUNT,
                 subject: 'Donation Request From Next Play Nation Website',
                 text: `Name:${clientName}\nClient Phone Number:${clientPhone}\nEmail Address:${clientEmail}\nDonation Type Client Wants To Do:${clientDonateType}`,

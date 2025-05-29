@@ -362,7 +362,7 @@ const AdminDashboard: React.FC = () => {
 
       <div className="w-screen overflow-hidden flex justify-center">
         <form onSubmit={adminLogout}>
-          <button className="bg-yellow-400 text-white p-3 w-[40%] hover:bg-green-500" type="submit">  Admin Logout  </button>
+          <button className="bg-yellow-400 text-white p-3 w-[80%] hover:bg-green-500" type="submit">  Admin Logout  </button>
                <div>{errorMessage && <div>{errorMessage}</div>}</div>
         </form>
       </div>

@@ -4,21 +4,46 @@
 
 
 
-
-
-const AdminLoginOutFunction = async (req, res) =>{
+const AdminLoginOutFunction = async (req, res) => {
     try {
-        res.clearCookie('adminToken')
-        req.session = null;
-        res.status(200).json({success: true, message: 'Admin Has Logout'})
+        
+      // Destroy session (if using express-session)
+      req.session?.destroy((err) => {
+        if (err) {
+          console.error('Session destroy error:', err);
+          return res.status(500).json({
+            success: false,
+            message: 'Failed to destroy session.',
+          });
+        }
+  
 
-    }catch(error) {
-        console.error('Admin Logout Error', error)
-        return res.status(500).json({ success: false, message: 'Admin Logout Failed to Log out. Please try again.'})
+        // Clear JWT cookie with the correct flags
+        res.clearCookie('adminToken', {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: 'Strict',
+        });
+  
 
+        // Optional: Clear session cookie (if used)
+        res.clearCookie('connect.sid', {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: 'Strict',
+        });
+  
+        return res.status(200).json({ success: true,message: 'Admin has logged out.', })
+     });
+
+
+    } catch (error) {
+      console.error('Admin Logout Error:', error);
+      return res.status(500).json({ success: false, message: 'Admin logout failed. Please try again.',
+      });
     }
-}
+  };
+  
 
 
-
-export default AdminLoginOutFunction
+  export default AdminLoginOutFunction;

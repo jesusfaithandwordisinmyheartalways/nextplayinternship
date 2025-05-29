@@ -13,7 +13,7 @@ dotenv.config()
 const clientEmailSend = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'andrewjohnson9393@gmail.com',
+          user: process.env.GMAIL_ACCOUNT,
           pass: process.env.GMAIL_PASSKEY      
         }
 
@@ -39,8 +39,8 @@ const registerEvent =  async(req, res) => {
            }
 
            const clientEmailData = {
-                from: 'andrewjohnson9393@gmail.com',
-                to: 'andrewjohnson9393@gmail.com',
+                from: `Next Play Nation Event Registration <${process.env.GMAIL_ACCOUNT}>`,
+                to: process.env.GMAIL_ACCOUNT,
                 subject: `Client event registration From Next Play Nation Website: option: ${eventSelect} `,
                 text: `Name: ${name}\nEmail: ${email}\nClient Contact Number: ${phoneNumber}\nEvent: ${eventSelect}\nMessage: ${textMessage}`,
                 replyTo: email

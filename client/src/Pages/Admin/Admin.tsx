@@ -152,11 +152,11 @@ const Admin: React.FC = () => {
 
   return (
     <>
-      <div className='w-screen overflow-hidden p-4 h-screen'>
+      <div className='w-screen overflow-hidden p-4 h-screen custom-admin-login-container '>
         <div className='flex items-center justify-center mx-auto max-w-[800px]'>
 
 
-          <div className='text-black text-4xl font-sans animate-header'>
+          <div className='text-black sm:text-xl  md:text-xl lg:text-4xl xl:text-4xl font-sans animate-header'>
             <h3>{AdminHeader.header}</h3>
           </div>
         </div>
@@ -169,7 +169,7 @@ const Admin: React.FC = () => {
               <label htmlFor='username'>Admin UserName</label>
               <div>
                 <input
-                  className='text-center p-1 w-[310px] border-4 border-solid border-black focus:border-none'
+                  className='text-center p-1 w-[90%]  border-4 border-solid border-black focus:border-none'
                   onChange={(e) => setUsername(e.target.value)}
                   ref={adminRef}
                   type='text'
@@ -180,7 +180,7 @@ const Admin: React.FC = () => {
               </div>
             </div>
 
-            <div className="relative w-[310px] mx-auto mt-2 animate-input2">
+            <div className="relative w-[90%] mx-auto mt-2 animate-input2">
               <label htmlFor='password'>Admin Password</label>
               <input
                 className="text-center w-full p-1 border-4 border-solid border-black focus:border-none"
@@ -209,7 +209,7 @@ const Admin: React.FC = () => {
               <label htmlFor='email'>Admin Email</label>
               <div>
                 <input
-                  className='text-center p-1 w-[310px] border-4 border-solid border-black focus:border-none'
+                  className='text-center p-1 w-[90%] border-4 border-solid border-black focus:border-none'
                   onChange={(e) => setEmail(e.target.value)}
                   value={email}
                   placeholder='Email'
@@ -221,7 +221,7 @@ const Admin: React.FC = () => {
 
             <div className='animate-button'>
               <button
-                className='bg-black text-white text-lg p-2 border-none outline-none cursor-pointer hover:bg-green-500'
+                className='bg-black w-[90%] text-white text-lg p-2 border-none outline-none cursor-pointer hover:bg-green-500'
                 type='submit'
               >
                 {buttonSpinner ? (
@@ -237,7 +237,7 @@ const Admin: React.FC = () => {
 
 
             <Link to="/admin-login-forgot">
-                <div className=' relative top-[50px] left-[-110px] cursor-pointer hover:text-green-500 text-md font-sans text-blue-800'>
+                <div className=' relative top-[50px] left-[-110px] cursor-pointer hover:text-green-500 text-md font-sans text-blue-800 custom-forgot-admin-password '>
                   <span>Forgot Admin Credentials ?</span></div>
             </Link>
 

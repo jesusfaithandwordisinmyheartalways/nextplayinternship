@@ -15,68 +15,63 @@ const AdminLoginFunction = async (req, res) => {
 
     if (!usernameRegex.test(username)) {
       const response = { success: false, message: 'Username must have at least one uppercase letter, one special character, and length between 8-15.', authenticated: false };
-      console.log('Admin login response:', response);
       return res.status(400).json(response);
     }
 
     if (!passwordRegex.test(password)) {
       const response = { success: false, message: 'Password must have at least one uppercase letter, one special character, and length between 8-15.', authenticated: false };
-      console.log('Admin login response:', response);
       return res.status(400).json(response);
     }
 
     if (!emailRegex.test(email)) {
       const response = { success: false, message: 'Invalid Email', authenticated: false };
-      console.log('Admin login response:', response);
       return res.status(400).json(response);
     }
 
     if (username === password) {
       const response = { success: false, message: 'Admin Username & Password cannot be the same.', authenticated: false };
-      console.log('Admin login response:', response);
       return res.status(400).json(response);
     }
 
-    // ✅ Find admin using both username and email
+    
     const admin = await AdminLoginUser.findOne({ username, email });
 
     if (!admin) {
       const response = { success: false, message: 'Admin not found with provided username and email.', authenticated: false };
-      console.log('Admin login response:', response);
       return res.status(403).json(response);
     }
 
-    // ✅ Validate password with bcrypt
+    
     const isPasswordValid = await bcrypt.compare(password, admin.password);
     if (!isPasswordValid) {
       const response = { success: false, message: 'Invalid password.', authenticated: false };
-      console.log('Admin login response:', response);
       return res.status(401).json(response);
     }
 
-    // ✅ Generate JWT
-    const token = jwt.sign({ id: admin._id, username: admin.username, email: admin.email },process.env.JWT_SECRET,{ expiresIn: '30d' });
+    const token = jwt.sign({ id: admin._id, username: admin.username, email: admin.email },process.env.JWT_SECRET,{ expiresIn: '1d' });
 
     res.cookie('adminToken', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
-      sameSite: 'Lax',
-      maxAge: 1000 * 60 * 60 * 24 * 30 // 30 days
+      sameSite: 'Strict',
+      maxAge: 1000 * 60 * 60 * 24,
     });
 
 
 
     const successResponse = { success: true, message: 'Admin Login Successfully', authenticated: true };
-    console.log('Admin login response:', successResponse);
+
 
     return res.status(200).json(successResponse);
 
   } catch (error) {
     console.error('Admin login error:', error);
     const errorResponse = { success: false, message: 'Admin Server Error', authenticated: false };
-    console.log('Admin login response:', errorResponse);
     return res.status(500).json(errorResponse);
   }
 };
+
+
+
 
 export default AdminLoginFunction;

@@ -45,15 +45,16 @@ const volunteer = async (req, res) => {
       }
   
       const mailOptions = {
-        from: process.env.GMAIL_ACCOUNT,
+        from: `Client Volunteer Request to Next Play Nation" <${process.env.GMAIL_ACCOUNT}>`,
         to: process.env.GMAIL_ACCOUNT,
-        subject: 'New Volunteer Submission From Next Play Nation Website',
+        subject: 'New Client Volunteer Submission From Next Play Nation Website',
         text: `Name: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nRole: ${role}\nExperience: ${experience}\nWhy Volunteer: ${whyVolunteer}`,
         replyTo: email || process.env.GMAIL_ACCOUNT
       };
   
 
 
+      
       clientVolunteerEmail.sendMail(mailOptions, (err, info) => {
         if (err) {
           console.error('Email error:', err);

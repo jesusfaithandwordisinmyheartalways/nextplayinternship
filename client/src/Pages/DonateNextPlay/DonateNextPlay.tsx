@@ -167,7 +167,7 @@ const DonateNextPlay: React.FC = () => {
             </div>
             <div className="flex justify-center w-full">
               <select
-                className="text-center border-4 border-black border-solid cursor-pointer hover:bg-green-400  w-[50%] "
+                className="text-center border-4 border-black border-solid cursor-pointer hover:bg-green-400 w-[90%] "
                 onChange={(e) => setClientDonateType(e.target.value)}
                 value={clientDonateType}
                 required

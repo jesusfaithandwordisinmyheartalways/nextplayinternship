@@ -132,12 +132,20 @@ const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
+
+  
   const scrollToTop = (): void => {
     const topPage = document.getElementById('top-page');
     if (topPage) {
       topPage.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+
+
+
+
 
   return (
     <>

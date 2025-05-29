@@ -6,16 +6,17 @@
 
 
 
-.custom-admin-dashboard-container {
-    
-}
 
 
 
 
 
 @media screen and (max-width:420px) {
-
+    .custom-admin-dashboard-container h3 {
+        font-size: 1rem;
+    
+    }
+    
 
 
 

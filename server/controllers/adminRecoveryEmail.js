@@ -35,7 +35,7 @@ const AdminRecoveryEmail = async (req, res ) => {
         });
 
         const mailOptions = {
-            from: process.env.GMAIL_ACCOUNT,
+            from: `Next Play Nation Admin Recovery <${process.env.GMAIL_ACCOUNT}>`,
             to: email,
             subject: 'Next Play Nation Admin Login Credentials',
             text: `Admin Login Credentials: \n\nUsername:${process.env.ADMIN_USERNAME}\nPassword:${process.env.ADMIN_PASSWORD}\nEmail:${process.env.ADMIN_EMAIL}`
