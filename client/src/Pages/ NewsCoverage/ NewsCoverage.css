@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+
+@media screen and (max-width:420px) {
+
+    .custom-news-coverage-container h3 {
+        font-size: 1.3rem;
+    }
+
+    .custom-news-coverage-container p {
+        font-size: 0.9rem;
+    }
+
+
+   
+
+}

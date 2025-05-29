@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:420px) {
+.custom-partner-container h3 {
+    font-size: 1.4rem;
+}
+
+
+.custom-partner-container p {
+    font-size: 0.9rem;
+}
+    
+}

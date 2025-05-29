@@ -1,0 +1,108 @@
+
+
+
+
+
+/* Run animation once on load only */
+.animate-image-left,
+.animate-image-right,
+.animate-text-up {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+}
+
+/* From far right */
+.animate-image-left {
+  animation-name: slideFromRight;
+}
+
+/* From bottom */
+.animate-text-up {
+  animation-name: slideFromBottom;
+}
+
+/* From far left */
+.animate-image-right {
+  animation-name: slideFromLeft;
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:420px) {
+
+  
+
+  .custom-football-container h3 {
+    font-size: 1.9rem;
+
+  }
+
+
+  .custom-football-container img {
+    width: 4rem;
+  }
+
+
+
+  .custom-football-container-two p {
+    font-size: 0.7rem;
+  }
+
+
+
+  .custom-football-container-two {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+
+
+
+}

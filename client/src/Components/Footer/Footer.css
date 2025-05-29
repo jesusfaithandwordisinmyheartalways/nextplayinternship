@@ -1,0 +1,72 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 420px) {
+
+
+ .custom-footer {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.custom-footer img {
+    width: 143px;
+    object-fit: contain;
+}
+
+
+.custom-footer-two {
+    display: flex;
+    flex-direction: column;
+
+}
+
+
+.custom-footer-two img {
+    width: 80px;
+    object-fit: contain;
+}
+
+
+
+
+
+
+
+
+    .custom-footer-three {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .footer-icon {
+        width: 34px;
+    }
+
+
+    .admin-footer  {
+        font-size: 0.9rem;
+    }
+
+
+
+
+    }
+
+
+
+

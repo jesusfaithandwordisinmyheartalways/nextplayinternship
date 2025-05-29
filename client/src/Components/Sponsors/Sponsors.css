@@ -1,0 +1,179 @@
+.HorizontalScroll-Container {
+  width: 100%;
+  overflow: hidden;
+  background: white;
+  animation: shadowPulse 4s ease-in-out infinite alternate;
+  -webkit-animation: shadowPulse 4s ease-in-out infinite alternate;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .HorizontalScroll-Container {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.HorizontalScroll-Header-Wrapper {
+  text-align: center;
+  margin-bottom: 10px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
+
+.HorizontalScroll-Header-Wrapper.animate-header h3 {
+  animation: slideInFromRight 0.5s ease-out forwards;
+  -webkit-animation: slideInFromRight 0.5s ease-out forwards;
+}
+
+/* Keyframes for header animation */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100vw);
+    -webkit-transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slideInFromRight {
+  0% {
+    -webkit-transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.HorizontalScroll-Wrapper {
+  display: flex;
+  gap: 110px;
+  width: fit-content;
+  animation: scrollHorizontal 30s linear infinite;
+  -webkit-animation: scrollHorizontal 30s linear infinite;
+}
+
+.HorizontalScroll-Wrapper img {
+  width: 310px;
+  object-fit: contain;
+  -webkit-object-fit: contain;
+  mix-blend-mode: lighten;
+  filter: brightness(1.1) contrast(1.4) saturate(0.8);
+  transition: transform 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+}
+
+.HorizontalScroll-Wrapper img:hover {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+}
+
+/* Scroll animation */
+@keyframes scrollHorizontal {
+  from {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+  }
+}
+
+@-webkit-keyframes scrollHorizontal {
+  from {
+    -webkit-transform: translateX(0%);
+  }
+  to {
+    -webkit-transform: translateX(-50%);
+  }
+}
+
+/* Optional animated box-shadow effect */
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@-webkit-keyframes shadowPulse {
+  0% {
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Mobile-specific styles */
+@media screen and (max-width: 420px) {
+  .HorizontalScroll-Container {
+    width: 100%;
+    overflow: hidden;
+    background: white;
+    animation: shadowPulse 4s ease-in-out infinite alternate;
+    -webkit-animation: shadowPulse 4s ease-in-out infinite alternate;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .HorizontalScroll-Container {
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .HorizontalScroll-Header-Wrapper {
+    text-align: center;
+    margin-bottom: 10px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+  }
+
+  .HorizontalScroll-Header-Wrapper h3 {
+    font-size: 1.5rem;
+  }
+
+  .HorizontalScroll-Header-Wrapper.animate-header h3 {
+    animation: slideInFromRight 0.5s ease-out forwards;
+    -webkit-animation: slideInFromRight 0.5s ease-out forwards;
+  }
+
+  .HorizontalScroll-Wrapper {
+    display: flex;
+    gap: 110px;
+    width: fit-content;
+    animation: scrollHorizontal 30s linear infinite;
+    -webkit-animation: scrollHorizontal 30s linear infinite;
+  }
+
+  .HorizontalScroll-Wrapper img {
+    width: 310px;
+    object-fit: contain;
+    -webkit-object-fit: contain;
+    mix-blend-mode: lighten;
+    filter: brightness(1.1) contrast(1.4) saturate(0.8);
+    transition: transform 0.3s ease-in-out;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  }
+
+  .HorizontalScroll-Wrapper img:hover {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+  }
+}

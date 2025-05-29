@@ -1,0 +1,77 @@
+
+
+
+
+
+
+
+
+
+/* Define the keyframes for fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+/* Spinner Style */
+button[disabled] {
+    cursor: not-allowed;
+}
+
+
+
+.spinner {
+    border: 3px solid #f3f3f3; /* Light grey background */
+    border-top: 3px solid #3498db; /* Blue color */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 3s linear infinite;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+
+
+/* Spinner animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:420px) {
+
+  .custom-general-container  h3 {
+    font-size: 1.4rem;
+  }
+
+  .custom-general-container label {
+    font-size: 1rem;
+  }
+
+   
+
+}
+

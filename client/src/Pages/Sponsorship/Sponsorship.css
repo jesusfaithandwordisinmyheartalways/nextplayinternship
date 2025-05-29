@@ -1,0 +1,37 @@
+
+
+
+
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  
+  .fade-in-section.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+
+
+
+
+  @media screen and (max-width:420px) {
+
+    .custom-sponsorship-container h3 {
+      font-size: 1.2rem
+    }
+
+
+    .custom-sponsorship-container p {
+      font-size: 0.9rem;
+    }
+
+
+
+ 
+ 
+     
+ }

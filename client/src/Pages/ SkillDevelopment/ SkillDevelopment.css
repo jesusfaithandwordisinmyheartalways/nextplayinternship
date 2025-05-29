@@ -1,0 +1,25 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:420px) {
+    .custom-skill-dev-container h3 {
+        font-size: 1.3rem;
+    }
+
+
+    .custom-skill-dev-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

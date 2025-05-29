@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:420px) {
+
+    .custom-development-container h3 {
+        font-size: 1.3rem;
+    }
+
+
+    .custom-development-container  p {
+        font-size: 0.9rem;
+    }
+
+   
+
+}

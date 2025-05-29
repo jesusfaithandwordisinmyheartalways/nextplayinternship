@@ -1,0 +1,248 @@
+/* Sticky Navbar */
+.custom-navbar-container.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: wheat;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: top 0.3s ease-in-out;
+  -webkit-transition: top 0.3s ease-in-out;
+}
+
+.custom-navbar-container {
+  width: 100%;
+  z-index: 999;
+  background: wheat;
+}
+
+.custom-navbar-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  max-width: 1500px;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+.custom-logo-navbar img {
+  width: 141px;
+  cursor: pointer;
+}
+
+.navbar-animated-hover-container {
+  position: relative;
+}
+
+.navbar-animated-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 50px;
+  position: relative;
+  left: -81px;
+}
+
+.navbar-middle-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.navbar-middle-section li {
+  font-size: 1.1rem;
+  margin-right: 5px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.navbar-middle-section li:hover {
+  color: seagreen;
+  cursor: pointer;
+}
+
+/* Animation common to all dropdowns */
+.dropdown-menu {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: absolute;
+  background: black;
+  width: auto;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  z-index: 999;
+}
+
+.dropdown-menu:hover {
+  cursor: pointer;
+}
+
+.dropdown-menu.show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+}
+
+/* Custom positions */
+.dropdown-menu-programs {
+  top: 100%;
+  left: -98px;
+}
+
+.dropdown-menu-events {
+  top: 100%;
+  left: 99px;
+}
+
+.dropdown-menu-intelligent {
+  top: 100%;
+  left: 299px;
+}
+
+.dropdown-menu-resources {
+  top: 100%;
+  left: 480px;
+}
+
+.dropdown-menu-media {
+  top: 100%;
+  left: 710px;
+}
+
+.dropdown-menu-contact {
+  top: 100%;
+  left: 910px;
+  cursor: pointer;
+}
+
+.dropdown-menu-contact:hover,
+.dropdown-menu-media:hover,
+.dropdown-menu-resources:hover,
+.dropdown-menu-intelligent:hover,
+.dropdown-menu-events:hover,
+.dropdown-menu-programs:hover {
+  cursor: pointer;
+}
+
+.link-section {
+  color: white;
+  padding: 4px 8px;
+  text-decoration: none;
+}
+
+.link-section:hover {
+  background-color: darkgreen;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* ---------------------MOBILE SCREEN  MAX-420px---------- ---------------*/
+@media screen and (max-width: 420px) {
+  .custom-navbar-container {
+    display: none;
+  }
+
+  .mobile-navbar-wrapper {
+    display: block;
+    background: wheat;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+  }
+
+  .mobile-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+  }
+
+  .mobile-logo {
+    width: 120px;
+  }
+
+  .mobile-menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .mobile-menu-container {
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+  }
+
+  .mobile-menu-section {
+    border-bottom: 1px solid #ddd;
+  }
+
+  .mobile-menu-title {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    padding: 10px;
+    background: #f5f5f5;
+    cursor: pointer;
+  }
+
+  .mobile-submenu {
+    padding-left: 15px;
+    background-color: #fff;
+  }
+
+  .mobile-link {
+    display: block;
+    padding: 8px 0;
+    color: #333;
+    text-decoration: none;
+  }
+
+  .mobile-link:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+/* ---------------------DESKTOP SCREEN S ---------- ---------------*/

@@ -1,0 +1,122 @@
+
+
+
+
+.custom-hero-image img {
+  object-fit: cover;
+  animation: slideInOut 6s ease-in-out 0s infinite forwards;
+  -webkit-animation: slideInOut 6s ease-in-out 0s infinite forwards;
+  -webkit-object-fit: cover;
+}
+
+
+
+
+/* Large screens */
+@media  (min-width: 1023px) and (max-width:1200px) {
+  .custom-hero-image img {
+    width: 510px;
+    object-fit: cover;
+    animation: slideInOut 6s ease-in-out 0s infinite forwards;
+    -webkit-animation: slideInOut 6s ease-in-out 0s infinite forwards;
+    -webkit-object-fit: cover;
+  }
+
+
+  .custom-hero-container {
+    height: 610px;
+  }
+}
+
+
+
+
+
+/* Tablets */
+@media (min-width: 421px) and (max-width: 1022px) {
+
+  .custom-hero-container {
+    height: 610px;
+  }
+
+
+  .custom-hero-image img {
+    width: 310px;
+    object-fit: cover;
+    animation: slideInOut 6s ease-in-out 0s infinite forwards;
+    -webkit-animation: slideInOut 6s ease-in-out 0s infinite forwards;
+    -webkit-object-fit: cover;
+  }
+}
+
+
+
+
+
+/* Mobile styles */
+@media screen and (max-width: 420px) {
+  .custom-hero-container {
+    height: 610px;
+  }
+}
+
+
+
+
+
+
+/* Animation keyframes */
+@keyframes slideInOut {
+  0% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(-100vw);
+    -webkit-transform: translateX(-100vw);
+    opacity: 0;
+  }
+  80% {
+    transform: translateX(100vw);
+    -webkit-transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+/* Webkit keyframes for Safari and legacy support */
+@-webkit-keyframes slideInOut {
+  0% {
+    -webkit-transform: translateX(0);
+    opacity: 1;
+  }
+  60% {
+    -webkit-transform: translateX(0);
+    opacity: 1;
+  }
+  70% {
+    -webkit-transform: translateX(-100vw);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: translateX(100vw);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,74 @@
+
+
+
+
+/* Removed old animated-header + letter keyframes */
+
+/* Animate h3 from bottom on scroll */
+.header-text {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 1.4s ease-out;
+  }
+  
+  .header-text.animate-header {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Jiggle animation for image */
+  .jiggle-image {
+    animation: jiggle 0.8s infinite ease-in-out;
+    background-color: white;
+  }
+  
+  @keyframes jiggle {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+  
+  /* Animate CTA text from bottom on scroll */
+  .cta-text {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.7s ease-out;
+  }
+  
+  .cta-text.animate-cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+
+
+
+
+
+
+
+
+  
+
+  @media screen and (max-width:420px) {
+
+    .custom-donate {
+      height: 410px;
+    }
+      .custom-donate h3 {
+        font-size: 1rem;
+      }
+
+      
+      .custom-donate-two img {
+        width: 110px;
+      }
+
+
+      .custom-donate-two button {
+        padding: 0.1em;
+        font-size: .5rem;
+      }
+
+  }

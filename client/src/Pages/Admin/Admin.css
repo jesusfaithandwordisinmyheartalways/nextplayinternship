@@ -1,0 +1,87 @@
+
+
+
+
+/* Icon positioning */
+.icon-password {
+  position: relative;
+  top: 21px;
+  cursor: pointer;
+}
+
+/* Tooltip styling */
+.tooltip {
+  position: absolute;
+  top: -5px;
+  right: -40px;
+  background: gold;
+  color: black;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+  -webkit-animation: fadeIn 0.3s ease forwards;
+  z-index: 20;
+}
+
+/* Tooltip fade-in animation */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Spinner Style */
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 3s linear infinite;
+  -webkit-animation: spin 3s linear infinite;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+/* Input focus fallback for Safari */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.5); /* Tailwind's green-500 approx */
+  -webkit-box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.5);
+}
+
+/* Smooth transition for interactive elements */
+button,
+input {
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}

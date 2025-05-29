@@ -1,0 +1,24 @@
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:420px) {
+
+    .custom-articles-container h3 {
+        font-size: 1.5rem;
+    }
+
+
+    .custom-articles-container p {
+        font-size: .9rem;
+    }
+
+
+   
+
+}

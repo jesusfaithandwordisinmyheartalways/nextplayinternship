@@ -1,0 +1,28 @@
+
+
+
+
+
+
+
+
+@media screen and (max-width:420px) {
+    .custom-recovery-admin-login-container  h3 {
+        font-size: 1.3rem;
+    }
+
+    .custom-recovery-admin-login-container label {
+        font-size: 1rem;
+    }
+    
+
+    .custom-recovery-admin-login-container button {
+        width: 80%;
+    }
+
+
+    .custom-recovery-admin-login-container input {
+        width: 80%;
+    }
+
+}

@@ -1,0 +1,70 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+body {
+ overflow-x: hidden;
+}
+
+
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .content {
+    flex-grow: 1;
+  }
+
+
+
+
+
+
+
+
+
+
+  .scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #06ff28;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 130px;
+    height: 50px;
+    font-size: 1rem;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  .scroll-to-top:hover {
+    background-color: #2adac3;
+  }
+  
+  .scroll-to-top:active {
+    transform: scale(0.9);
+  }
+  
+  
+  
+  
+  .scroll-to-top button {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+
+

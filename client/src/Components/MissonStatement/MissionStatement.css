@@ -1,0 +1,51 @@
+
+
+
+
+
+
+
+@media screen and (max-width: 420px) {
+    .custom-mission-container {
+      height: 910px;
+    }
+  
+    .custom-mission-container h3 {
+      font-size: 1.5rem;
+      text-align: center;
+      display: block;
+      width: 100%;
+      color: white;
+    }
+  
+    .mobile-slide-up {
+      opacity: 1 !important;
+      transform: translateY(100px);
+      transition: transform 0.8s ease-out;
+    }
+  
+    .mobile-slide-up.animate {
+      transform: translateY(0);
+    }
+  
+    .custom-mission-two {
+      flex-direction: column;
+      align-items: center;
+      max-width: 100%;
+    }
+  
+    .custom-mission-two p {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  
+    .custom-mission-two img {
+      width: 299px;
+    }
+
+
+
+
+
+    
+  }

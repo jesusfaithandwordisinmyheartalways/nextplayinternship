@@ -1,0 +1,57 @@
+
+
+
+/* Initial hidden state */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+  }
+  
+  /* Visible state when scrolled into view */
+  .fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:420px) {
+
+    .custom-social-container h3 {
+      font-size: 1.5rem;
+    }
+
+
+    .custom-social-container h4 {
+      font-size: 1rem;
+    }
+
+
+    .custom-social-media-wrapper  {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin:0 auto;
+      gap:9px
+    }
+
+
+    .custom-social-media-wrapper img {
+      width: 110px;
+    }
+
+
+
+   
+
+}

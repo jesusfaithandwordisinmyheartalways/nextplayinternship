@@ -1,0 +1,87 @@
+
+
+
+
+
+
+
+.hidden-title {
+    opacity: 0;
+    transform: translate(-200px, 200px);
+  }
+  
+  .animate-title {
+    animation: curveInLeft 5s ease forwards;
+  }
+  
+  @keyframes curveInLeft {
+    0% {
+      opacity: 0;
+      transform: translate(-200px, 200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  
+  .hidden-image {
+    opacity: 0;
+    transform: translate(200px, 200px);
+  }
+  
+  .animate-image {
+    animation: curveInRight 0.9s ease forwards;
+  }
+  
+  @keyframes curveInRight {
+    0% {
+      opacity: 0;
+      transform: translate(200px, 200px);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @media screen and (max-width:420px) {
+    .custom-basketball-container h3 {
+      font-size: 1.5rem;
+    }
+
+   
+
+    .custom-basketball-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 900px;
+    }
+
+
+    .custom-basketball-section p {
+      text-align: center;
+      position: relative;
+      top:0px;
+      left: -31px;
+      font-size: 0.8rem;
+      width: 90%;
+      
+    }
+
+
+
+  }

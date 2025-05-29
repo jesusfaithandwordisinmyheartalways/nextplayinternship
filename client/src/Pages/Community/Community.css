@@ -1,0 +1,24 @@
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:420px) {
+    
+    .custom-community-container h3 {
+        font-size: 1.5rem;
+    }
+
+    .custom-community-container p {
+        font-size: 0.9rem;
+    }
+
+
+    
+}

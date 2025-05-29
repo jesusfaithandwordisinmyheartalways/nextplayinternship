@@ -1,0 +1,38 @@
+
+
+
+
+
+
+
+
+@media screen and ( max-width:420px) {
+
+
+    .custom-other-sports-container h3 {
+        font-size: 1.4rem;
+    }
+
+    .custom-other-sports-wrapper p {
+        font-size: 0.8rem;
+        width: 210px;
+    }
+
+    .custom-other-sports-wrapper img {
+        width: 7rem;
+    }
+
+
+
+    .custom-other-sports-wrapper  {
+        display: flex;
+        justify-content: center;
+        gap: 3;
+    }
+
+
+
+    
+        
+    
+}

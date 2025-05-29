@@ -1,0 +1,28 @@
+
+
+
+
+
+.tooltip {
+    transition: opacity 0.2s ease-in-out;
+    max-width: 200px;
+    word-wrap: break-word;
+  }
+
+
+
+
+
+
+
+
+  @media screen and (max-width:420px) {
+
+      .custom-event-container h1 {
+        font-size: 0.6rem;
+      }
+
+
+    
+  }
+  
