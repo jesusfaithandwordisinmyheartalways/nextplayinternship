@@ -7,7 +7,7 @@ import rateLimit from 'express-rate-limit';
 
 
 
-const adminLoginRateLimit = rateLimit({
+export const adminLoginRateLimit = rateLimit({
   windowMs: 24 * 60 * 60 * 1000, 
   max: 5, 
   message: {
@@ -18,4 +18,3 @@ const adminLoginRateLimit = rateLimit({
   legacyHeaders: false,
 });
 
-export default adminLoginRateLimit;

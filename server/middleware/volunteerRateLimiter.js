@@ -4,7 +4,7 @@
 
 import rateLimit from 'express-rate-limit';
 
-const volunteerRateLimiter = rateLimit({
+export const volunteerRateLimiter = rateLimit({
   windowMs: 24 * 60 * 60 * 1000, 
   max: 5, 
   message: {
@@ -15,4 +15,3 @@ const volunteerRateLimiter = rateLimit({
   legacyHeaders: false,
 });
 
-export default volunteerRateLimiter;

@@ -5,7 +5,7 @@
 
 import express from 'express';
 import contactInquiries from '../controllers/contactInquiries.js';
-import contactFormLimiter from '../middleware/contactFormRateLimiter.js';
+import { contactFormLimiter }from '../middleware/contactFormRateLimiter.js';
 
 
 const router = express.Router()

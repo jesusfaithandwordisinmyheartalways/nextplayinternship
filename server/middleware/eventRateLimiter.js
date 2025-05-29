@@ -4,7 +4,7 @@
 
 import rateLimit from 'express-rate-limit';
 
-const eventRateLimiter = rateLimit({
+export const eventRateLimiter = rateLimit({
   windowMs: 24 * 60 * 60 * 1000, 
   max: 3, 
   message: {
@@ -15,4 +15,3 @@ const eventRateLimiter = rateLimit({
   legacyHeaders: false,
 });
 
-export default eventRateLimiter

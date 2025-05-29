@@ -5,7 +5,7 @@
 
 import express from 'express';
 import registerEvent from '../controllers/registerEvent.js';
-import eventRateLimiter from '../middleware/eventRateLimiter.js';
+import { eventRateLimiter }from '../middleware/eventRateLimiter.js';
 
 
 const router = express.Router()

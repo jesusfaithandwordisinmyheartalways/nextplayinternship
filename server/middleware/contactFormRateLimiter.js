@@ -4,7 +4,7 @@
 
 import rateLimit from 'express-rate-limit';
 
-const contactFormLimiter = rateLimit({
+export const contactFormLimiter = rateLimit({
     windowMs: 24 * 60 * 60 * 1000, 
     max: 5, 
     message: {
@@ -17,4 +17,3 @@ const contactFormLimiter = rateLimit({
 
   
 
-export default contactFormLimiter;
