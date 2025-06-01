@@ -28,6 +28,9 @@ import INSTAGRAM from '../Images/instagram.png'
 import FB from '../Images/facebook.png'
 import PHOTO from '../Images/photo.png'
 import DONATION from '../Images/donation.png'
+import FELIX_PHOTO from '../Images/FelixJoyner.png'
+import TD_PHOTO from '../Images/CoachTNT.png'
+
 
 
 
@@ -62,7 +65,9 @@ interface Images<T> {
     fbImage:T,
     linkedinImage:T,
     photoImage:T,
-    donationImage:T
+    donationImage:T,
+    felixImage:T,
+    tdImage:T,
   
 }
 
@@ -96,7 +101,9 @@ const data:Images<string>[] = [
         fbImage:FB,
         linkedinImage:Linkedin,
         photoImage: PHOTO,
-        donationImage: DONATION
+        donationImage: DONATION,
+        felixImage:FELIX_PHOTO,
+        tdImage: TD_PHOTO
 
     }
 ]

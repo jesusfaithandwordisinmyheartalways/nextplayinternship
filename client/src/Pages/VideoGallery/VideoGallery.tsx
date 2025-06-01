@@ -84,7 +84,7 @@ const VideoGallery:React.FC= () => {
 
 
                     <div className='  sm:w-[70%] md:w-[50%] lg:w-[40%]  p-10'>
-                        <div className=' object-contain'><img src={data[0].photoImage} alt=''></img></div>
+                        <div className=' object-contain'><img src={data[0].photoImage} alt='' loading="lazy"></img></div>
                     </div>
 
 

@@ -41,7 +41,7 @@ const DonateNextPlay: React.FC = () => {
 
         const DonateClientError = async (errorDetails: any) => {
           try {
-            await fetch('http://localhost:3001/error/donate-next-play-nation-client-error', {
+            await fetch('http://3.15.232.45:3001/donate-next-play-nation-client-error', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
@@ -67,7 +67,7 @@ const DonateNextPlay: React.FC = () => {
     setButtonSpinner(true);
 
     try {
-      const response = await fetch('http://localhost:3001/donate/donate-client', {
+      const response = await fetch('http://3.15.232.45:3001/donate/donate-client', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ clientName, clientPhone, clientEmail, clientDonateType })

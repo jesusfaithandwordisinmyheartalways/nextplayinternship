@@ -63,7 +63,7 @@ app.use(helmet());
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   cookie: {
     secure: true, 
     httpOnly: true,
@@ -159,10 +159,8 @@ const startApolloServer = async () => {
     typeDefs,
     resolvers,
     cache: "bounded",
-    introspection: process.env.NODE_ENV !== 'production', 
-    plugins: process.env.NODE_ENV !== 'production'
-      ? [ApolloServerPluginLandingPageLocalDefault({ embed: true })]
-      : [], 
+    introspection: true,
+    plugins: [ApolloServerPluginLandingPageLocalDefault({ embed: true })],
   });
 
   await apolloServer.start();
@@ -170,7 +168,6 @@ const startApolloServer = async () => {
 };
 
 startApolloServer();
-
 
 
 

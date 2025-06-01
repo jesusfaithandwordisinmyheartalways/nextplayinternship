@@ -83,7 +83,7 @@ const Sponsorship: React.FC = () => {
           className='fade-in-section flex flex-col items-center justify-center mx-auto mt-[90px] max-w-[800px] text-center'
           ref={addToRefs}
         >
-          <div className='w-[20%]'><img src={sponsor.image} alt='' /></div>
+          <div className='w-[20%]'><img src={sponsor.image} alt=''  loading="lazy" /></div>
           <Link to={sponsor.link}>
             <div className='hover:text-green-500 '>
               <p className=' text-base sm:text-lg md:text-lg lg:text-sm xl:text-xl'>Visit our sponsor’s profile to learn more</p>
@@ -99,8 +99,8 @@ const Sponsorship: React.FC = () => {
         <div className='text-3xl font-sans'>
           <h3>Other Sponsors</h3>
         </div>
-        <div className='w-[20%]'><img src={data[0].nextUpImage} alt='' /></div>
-        <div className='w-[20%]'><img src={data[0].shoeSponsorImage} alt='' /></div>
+        <div className='w-[20%]'><img src={data[0].nextUpImage} alt=''  loading="lazy" /></div>
+        <div className='w-[20%]'><img src={data[0].shoeSponsorImage} alt=''  loading="lazy" /></div>
       </div>
     </div>
   )

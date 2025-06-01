@@ -69,7 +69,7 @@ const Donate: React.FC = () => {
 
       <div className='flex items-center justify-around mx-auto max-w-[1000px] mt-[90px] custom-donate-two '>
         <div className='w-[310px] object-contain'>
-          <img src={data[0].donationImage} alt='' className="jiggle-image" />
+          <img src={data[0].donationImage} alt='' loading="lazy" className="jiggle-image" />
         </div>
 
 

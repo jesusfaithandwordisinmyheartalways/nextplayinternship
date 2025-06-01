@@ -64,7 +64,7 @@ const Basketball: React.FC = () => {
         <div className='flex items-center justify-around mx-auto max-w-[800px] relative top-[30px] custom-basketball-section '>
           <div  className={` ${
               isVisible ? 'animate-image' : 'hidden-image' }`} >
-            <img className='w-[40%] object-contain ' src={data[0].basketBallImage} alt='' />
+            <img className='w-[40%] object-contain ' src={data[0].basketBallImage} alt=''  loading="lazy" />
           </div>
 
 

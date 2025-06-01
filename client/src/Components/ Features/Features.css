@@ -2,35 +2,37 @@
 
 
 
-
-
-
 @media screen and (max-width: 420px) {
-    .custom-mission-container h3,
-    .custom-feature-section-two h3,
-    .custom-mission-three h3 {
-      font-size: 1.25rem; /* Increased for visibility */
-      text-align: center;
-      color: black;
-      display: block;
-      opacity: 1 !important; /* Ensure visible after animation */
-      transform: none !important; /* Prevent stuck transforms on mobile */
-    }
-  
-    .mobile-h3-fix {
-      font-size: 1.25rem;
-      text-align: center;
-      display: block;
-      width: 100%;
-      transition: all 1s ease-out;
-    }
-  
-    .custom-mission-two {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .custom-feature-section p {
-      font-size: 0.9rem;
-    }
+  .custom-feature-section-two h3 {
+    font-size: 1.2rem;
   }
+
+  .custom-mission-two {
+    flex-direction: column;
+    align-items: center;
+   
+  }
+
+  
+
+  .custom-mission-three h3 {
+    font-size: 1.25rem;
+    text-align: center;
+    color: black;
+    display: block;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .mobile-h3-fix {
+    font-size: 1.25rem;
+    text-align: center;
+    display: block;
+    width: 100%;
+    transition: all 1s ease-out;
+  }
+
+  .custom-feature-section p {
+    font-size: 0.9rem;
+  }
+}

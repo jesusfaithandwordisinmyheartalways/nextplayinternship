@@ -126,7 +126,7 @@ const AboutUs: React.FC = () => {
           data[0].volleyBallImage,
         ].map((img, index) => (
           <div className='w-[410px] ' key={index}>
-            <img src={img} alt='' />
+            <img src={img} alt=''  loading="lazy" />
           </div>
         ))}
       </div>
@@ -135,7 +135,7 @@ const AboutUs: React.FC = () => {
       <div ref={aboutTwoRef} className='custom-about-us-three flex items-center justify-around mx-auto max-w-[1000px] mt-10 p-4 '>
         <div className={`w-[310px] object-contain transition-all duration-1000 ease-in-out ${
             animateAboutTwo ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}`}>
-          <img src={data[0].aboutUsImage} alt='' />
+          <img src={data[0].aboutUsImage} alt='' loading="lazy" />
         </div>
 
         <div className={`text-white text-2xl font-sans text-center w-[310px] transition-all duration-1000 ease-in-out ${
@@ -155,7 +155,7 @@ const AboutUs: React.FC = () => {
       <div ref={leadershipRef} className={` custom-about-us-three  flex items-center justify-around mx-auto max-w-[1000px] gap-4 mt-5 p-5 transition-all duration-1000 ease-in-out ${
           animateLeadership ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'  }`} >
         <div className='w-[310px] object-contain'>
-          <img src={data[0].leadershipImage} alt='' />
+          <img src={data[0].leadershipImage} alt=''  loading="lazy" />
         </div>
 
 
@@ -184,7 +184,7 @@ const AboutUs: React.FC = () => {
           animateSuccess ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`} >
         <div className='w-[310px] object-contain'>
-          <img  src={data[0].successImage} alt='' />
+          <img  src={data[0].successImage} alt=''  loading="lazy" />
         </div>
         <div>
           <div className='text-white text-2xl font-serif'>
@@ -215,7 +215,7 @@ const AboutUs: React.FC = () => {
           animateCommunity ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
         <div className='w-[310px] object-contain'>
-          <img src={data[0].communityImage} alt='' />
+          <img src={data[0].communityImage} alt=''  loading="lazy" />
         </div>
 
 

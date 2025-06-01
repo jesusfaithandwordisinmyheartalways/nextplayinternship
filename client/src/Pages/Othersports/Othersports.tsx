@@ -60,9 +60,9 @@ const Othersports:React.FC= () => {
     
             <div className='flex flex-row items-center justify-around mx-auto max-w-[800px] custom-other-sports-wrapper '>
               <div  className={`w-[50%] object-contain ${ isVisible ? 'animate-image' : 'hidden-image' }`} >
-                <img src={data[0].baseBallImage} alt='' />
-                <img src={data[0].swimmerImage} alt='' />
-                <img src={data[0].volleyBallImage} alt='' />
+                <img src={data[0].baseBallImage} alt=''  loading="lazy" />
+                <img src={data[0].swimmerImage} alt=''   loading="lazy"/>
+                <img src={data[0].volleyBallImage} alt=''  loading="lazy" />
               </div>
     
               <div >

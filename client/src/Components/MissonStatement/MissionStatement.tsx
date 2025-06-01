@@ -12,7 +12,7 @@ const MissionStatement: React.FC = () => {
   const titleRef = useRef<HTMLDivElement | null>(null)
   const contentRef = useRef<HTMLDivElement | null>(null)
 
-  // Animate Title
+  // ✅ Animate Title (slide up once when in view)
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -20,10 +20,11 @@ const MissionStatement: React.FC = () => {
           setAnimateTitle(true)
           setTitleShown(true)
 
-          // Add mobile-specific class
           if (window.innerWidth <= 420 && titleRef.current) {
             titleRef.current.classList.add('animate')
           }
+
+          observer.unobserve(entry.target)
         }
       },
       { threshold: 0.5 }
@@ -55,39 +56,37 @@ const MissionStatement: React.FC = () => {
     }
   }, [contentShown])
 
-
-
-
-
   return (
     <div className='w-screen overflow-hidden bg-black p-3 custom-mission-container'>
+      {/* 🔽 Title Section with Slide-Up Animation */}
       <div className='flex items-center justify-center mx-auto'>
         <div
           ref={titleRef}
-          className={`text-5xl text-white font-serif font-bold transition-all duration-1000 ease-out ${
-            animateTitle ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
+          className={`sm:text-xl md:text-xl lg:text-4xl xl:text-4xl text-white font-serif font-bold transition-all duration-1000 ease-out transform ${
+            animateTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
           } mobile-slide-up`}
         >
           <h3>MISSION STATEMENT</h3>
         </div>
       </div>
 
+      {/* 🔽 Content Section */}
       <div
         ref={contentRef}
         className='flex items-center justify-around gap-3 p-7 mx-auto max-w-[1300px] custom-mission-two'
       >
         <div
-          className={ ` custom-mission-two w-[310px] object-contain transform transition-all duration-[2000ms] ease-out ${
+          className={`custom-mission-two w-[310px] object-contain transform transition-all duration-[2000ms] ease-out ${
             animateContent ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
           }`}
         >
           <div>
-            <img src={data[0].missionImage} alt='' />
+            <img src={data[0].missionImage} alt='' loading="lazy" />
           </div>
         </div>
 
         <div
-          className={`text-2xl text-white font-sans text-center w-[310px] transform transition-all duration-[3000ms] ease-out ${
+          className={`text-xl text-white font-sans text-center w-[50%] transform transition-all duration-[3000ms] ease-out ${
             animateContent ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
           }`}
         >

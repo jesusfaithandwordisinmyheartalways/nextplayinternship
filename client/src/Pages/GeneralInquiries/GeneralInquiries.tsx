@@ -41,7 +41,7 @@ const GeneralInquiries:React.FC = () => {
      // Client Side function  Logs client-side errors to the backend , Keeps the UI secure with a generic message.
      const GeneralInquiryClientError = async (error: any) => {
         try {
-            await fetch('http://localhost:3001/inquiries-client-error', {
+            await fetch('http://3.15.232.45:3001/inquiries-client-error', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -79,7 +79,7 @@ const GeneralInquiries:React.FC = () => {
         setButtonSpinner(true)
 
         try {
-            const response = await fetch('http://localhost:3001/contact/inquiries', {
+            const response = await fetch('http://3.15.232.45:3001/contact/inquiries', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({ name, lastName, telephone, textMessage, emailAddress })

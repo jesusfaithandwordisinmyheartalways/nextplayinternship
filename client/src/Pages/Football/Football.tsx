@@ -43,7 +43,7 @@ const Football: React.FC = () => {
         <div className='flex items-center justify-around gap-3 p-10 mx-auto max-w-[2000px]'>
 
           <div className='animate-image-left w-[21%] object-contain'>
-            <img src={data[0].footballImage} alt='' />
+            <img src={data[0].footballImage} alt=''  loading="lazy" />
           </div>
 
           <div className='animate-text-up  sm:text-lg md:text-xl lg:text-3xl xl:text-5xl font-sans text-yellow-500'>
@@ -51,7 +51,7 @@ const Football: React.FC = () => {
           </div>
 
           <div className='animate-image-right w-[21%] object-contain'>
-            <img src={data[0].footBallPlayersImage} alt='' />
+            <img src={data[0].footBallPlayersImage} alt=''  loading="lazy" />
           </div>
 
         </div>

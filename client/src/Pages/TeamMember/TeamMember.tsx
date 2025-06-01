@@ -61,7 +61,7 @@ const TeamMember = () => {
   return (
     <>
       <div ref={sectionRef} className='team-section fade-in w-screen overflow-hidden p-10 custom-team-member-container '>
-        <div className='flex flex-col items-center justify-center mx-auto max-w[800px]'>
+        <div className='flex flex-col gap-10 items-center justify-center mx-auto max-w[800px]'>
           
           <div className='sm:text-lg md:text-xl lg:text-3xl xl:text-4xl text-black font-sans p-10'>
             {graphQLData?.OUR_TEAM?.map((element: { data: string }, index: number) => (
@@ -79,8 +79,8 @@ const TeamMember = () => {
             <span>Jerrit Judie</span>
           </div>
 
-          <div className='w-[40%] object-contain'>
-            <img src={data[0].missionImage} alt='' />
+          <div className='w-[25%] object-contain'>
+            <img src={data[0].missionImage} alt=''  loading="lazy" />
           </div>
 
           <div className='w-[70%] text-center font-serif text-md p-10'>
@@ -92,6 +92,52 @@ const TeamMember = () => {
               the field.
             </p>
           </div>
+
+
+
+          <div className='w-[21%] object-contain custom-bio-header'>
+            <img src={data[0].felixImage} alt=''  loading="lazy" />
+            <div className=' w-70% font-sans text-center text-black font-bold'><h3>Felix Joyner</h3></div>
+            <div className=' w-70% font-sans text-center text-black font-bold'><h3> Athlete Mentor</h3></div>
+            <div className=' w-70% font-sans text-center text-yellow-500'><h3>Youth Advocate</h3></div>
+              <div className='  w-[100%]  font-sans text-center sm:text-lg md:text-lg lg:text-md xl:text-md'>
+                <p>A former pro running back with a 14-year career across the NFL, CFL, and international leagues, 
+                  Felix Joyner now empowers the next generation through mentorship, training, and youth development.
+                   As founder of FJ1 Sports
+                   and a respected leader in the space, he brings elite experience, purpose-driven leadership, and 
+                   a passion for helping athletes succeed on and off the field.</p>
+              </div>
+
+          </div>
+
+
+
+
+
+
+
+          <div className='w-[21%] object-contain custom-bio-header'>
+            <img src={data[0].tdImage} alt=''  loading="lazy" />
+            <div className=' w-70% font-sans text-center text-black font-bold'><h3>Coach TNT</h3></div>
+            <div className=' w-70% font-sans text-center text-black font-bold'><h3> Tony “Terror in the Trenches</h3></div>
+              <div className=' w-[100%] font-sans text-center sm:text-lg md:text-lg lg:text-md xl:text-md'>
+                <p>Global lineman coach and Director of the U.S. Army Bowl, 
+                  Coach TNT is known for developing elite trench talent with unmatched intensity 
+                  and precision. With a worldwide reputation and a passion for building leaders on and off the field,
+                   he’s a force in the game and a mentor to the next generation.</p>
+              </div>
+
+          </div>
+
+
+
+
+
+
+
+
+
+       
 
 
 

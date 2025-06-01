@@ -1,13 +1,6 @@
-
-
-
 import React, { useEffect, useRef, useState } from 'react'
 import './Features.css'
 import { data } from '../Data/data'
-
-
-
-
 
 const Features: React.FC = () => {
   const [animateTitle, setAnimateTitle] = useState(false)
@@ -23,10 +16,7 @@ const Features: React.FC = () => {
   const contentRef = useRef<HTMLDivElement | null>(null)
   const ctaRef = useRef<HTMLDivElement | null>(null)
 
-
-  
-
-  // Animate H3 Title
+  // ✅ Animate H3 Title (slide up once on scroll into view)
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -87,25 +77,26 @@ const Features: React.FC = () => {
   }, [ctaShown])
 
 
-
-
+  
 
   return (
     <div className='w-screen overflow-hidden bg-yellow-500 p-10 custom-mission-container'>
-      <div className='custom-feature-section-two flex items-center justify-center mx-auto'>
+      {/* 🔽 H3 Title Section with slide-up animation */}
+      <div className='flex items-center justify-center mx-auto custom-feature-section-two'>
         <div
           ref={titleRef}
-          className={`text-4xl text-black font-serif font-bold transition-all duration-1000 ease-out ${
-            animateTitle ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
+          className={`sm:text-lg md:text-lg lg:text-3xl xl:text-3xl text-black font-serif font-bold transition-all duration-1000 ease-out transform ${
+            animateTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
           } mobile-h3-fix`}
         >
           <h3>FEATURES, EVENTS, & NEWS</h3>
         </div>
       </div>
 
+      {/* 🔽 Image and Paragraph Section */}
       <div
         ref={contentRef}
-        className='flex items-center justify-around gap-3 p-7 mx-auto max-w-[1300px] custom-mission-two flex-wrap'
+        className='flex items-center justify-around gap-3 p-7 mx-auto max-w-[1300px] flex-wrap custom-mission-two'
       >
         <div
           className={`w-[310px] object-contain transform transition-all duration-[2000ms] ease-out ${
@@ -113,12 +104,12 @@ const Features: React.FC = () => {
           }`}
         >
           <div>
-            <img src={data[0].featuresImage} alt='' />
+            <img src={data[0].featuresImage} alt='' loading='lazy' />
           </div>
         </div>
 
         <div
-          className={`text-2xl text-white font-sans text-center w-[310px] transform transition-all duration-[3000ms] ease-out ${
+          className={`text-xl text-white font-sans text-center w-[50%] transform transition-all duration-[3000ms] ease-out ${
             animateContent ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
           }`}
         >
@@ -130,7 +121,7 @@ const Features: React.FC = () => {
         </div>
       </div>
 
-      {/* Call to Action Section */}
+      {/* 🔽 Call to Action Section */}
       <div ref={ctaRef} className='flex flex-col items-center justify-center mx-auto p-10 custom-mission-three'>
         <div
           className={`text-3xl text-black font-sans text-center transform transition-all duration-1000 ease-out ${

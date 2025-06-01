@@ -78,7 +78,7 @@ const App: React.FC = () => {
 
     const checkAuth = async () => {
       try {
-        const response = await fetch('http://localhost:3001/auth/admin-authentication', {
+        const response = await fetch('http://3.15.232.45:3001/auth/admin-authentication', {
           credentials: "include",
         });
         const data = await response.json();
