@@ -63,7 +63,7 @@ const Admin: React.FC = () => {
 
   const adminLogClientError = async (error: unknown, context: string) => {
     try {
-      await fetch('http://3.15.232.45:3001/admin-client-error', {
+      await fetch('https://nextplayinternshipserver.onrender.com/admin-client-error', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({  message: String(error), context, timeStamp: new Date().toISOString() })
@@ -96,7 +96,7 @@ const Admin: React.FC = () => {
     setButtonSpinner(true);
 
     try {
-      const response = await fetch('http://3.15.232.45:3001/admin/admin-login', {
+      const response = await fetch('https://nextplayinternshipserver.onrender.com/admin/admin-login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

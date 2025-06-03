@@ -54,7 +54,7 @@ const Coaching: React.FC = () => {
     setError('');
 
     try {
-      const response = await fetch('http://3.15.232.45:3001/coach/volunteer', {
+      const response = await fetch('https://nextplayinternshipserver.onrender.com/coach/volunteer', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ fullName, email, phone: phoneNumber,  role,  experience, whyVolunteer, }),

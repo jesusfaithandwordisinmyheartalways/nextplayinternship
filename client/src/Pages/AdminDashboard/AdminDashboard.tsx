@@ -15,7 +15,7 @@ import './AdminDashboard.css'
 
 
 
-const socket = io('http://3.15.232.45:3001');
+const socket = io('https://nextplayinternshipserver.onrender.com');
 
 
 
@@ -56,7 +56,7 @@ const AdminDashboard: React.FC = () => {
 
 
   const fetchAll = async () => {
-    const res = await fetch('http://3.15.232.45:3001/calendar/calendar-events');
+    const res = await fetch('https://nextplayinternshipserver.onrender.com/calendar/calendar-events');
     const data = await res.json();
     setAllEvents(data);
   };
@@ -74,7 +74,7 @@ const AdminDashboard: React.FC = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch('http://3.15.232.45:3001/auth/admin-authentication', {
+        const res = await fetch('https://nextplayinternshipserver.onrender.com/auth/admin-authentication', {
           credentials: 'include',
         });
         const data = await res.json();
@@ -134,7 +134,7 @@ const AdminDashboard: React.FC = () => {
 
     const AdminDashboardClientError = async (errorType:string, errorDetail: any) => {
       try {
-        await fetch('http://3.15.232.45:3001/admin-dashboard-client-error', {
+        await fetch('https://nextplayinternshipserver.onrender.com/admin-dashboard-client-error', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -170,7 +170,7 @@ const AdminDashboard: React.FC = () => {
     }
 
     try {
-      await fetch('http://3.15.232.45:3001/calendar/create-event', {
+      await fetch('https://nextplayinternshipserver.onrender.com/calendar/create-event', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -201,7 +201,7 @@ const AdminDashboard: React.FC = () => {
     if (!editingId) return;
 
     try {
-      await fetch(`http://3.15.232.45:3001/calendar/update-event/${editingId}`, {
+      await fetch(`https://nextplayinternshipserver.onrender.com/calendar/update-event/${editingId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -230,7 +230,7 @@ const AdminDashboard: React.FC = () => {
 
 
   const handleDelete = async (id: string) => {
-    await fetch(`http://3.15.232.45:3001/calendar/delete-event/${id}`, {
+    await fetch(`https://nextplayinternshipserver.onrender.com/calendar/delete-event/${id}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -247,7 +247,7 @@ const AdminDashboard: React.FC = () => {
   const adminLogout = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://3.15.232.45:3001/logout/admin-logout', {
+      const response = await fetch('https://nextplayinternshipserver.onrender.com/logout/admin-logout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

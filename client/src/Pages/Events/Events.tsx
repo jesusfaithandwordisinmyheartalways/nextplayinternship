@@ -20,7 +20,7 @@ const Events: React.FC = () => {
 
 
   const fetchEvents = async () => {
-    const res = await fetch('http://3.15.232.45:3001/calendar/calendar-events');
+    const res = await fetch('https://nextplayinternshipserver.onrender.com/calendar-events');
     const data = await res.json();
     setEvents(data);
   };

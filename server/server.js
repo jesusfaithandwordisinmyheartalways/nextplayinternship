@@ -47,7 +47,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3000',
+    origin: 'https://nextplayinternshipclient.onrender.com',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   },
@@ -75,7 +75,7 @@ app.use(session({
 
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: 'https://nextplayinternshipclient.onrender.com',
   credentials: true,
 }));
 
@@ -192,7 +192,7 @@ app.get('/', (req, res) => {
 
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

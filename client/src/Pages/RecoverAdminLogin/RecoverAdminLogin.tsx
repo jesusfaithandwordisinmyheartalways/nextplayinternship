@@ -61,7 +61,7 @@ const RecoverAdminLogin: React.FC = () => {
     // Client Side function  Logs client-side errors to the backend , Keeps the UI secure with a generic message.
     const AdminLoginRecoveryClientError = async (error: any) => {
         try {
-            await fetch('http://3.15.232.45:3001/admin-email-recover-client-error', {
+            await fetch('https://nextplayinternshipserver.onrender.com/admin-email-recover-client-error', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -92,7 +92,7 @@ const RecoverAdminLogin: React.FC = () => {
         }
 
         try {
-            const response = await fetch('http://3.15.232.45:3001/email/admin-recover', {
+            const response = await fetch('https://nextplayinternshipserver.onrender.com/email/admin-recover', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',

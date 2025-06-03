@@ -21,9 +21,6 @@ const AdminRecoveryEmail = async (req, res) => {
     }
 
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT, 10),
-      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for 587
       auth: {
         user: process.env.GMAIL_ACCOUNT,
         pass: process.env.GMAIL_PASSKEY,

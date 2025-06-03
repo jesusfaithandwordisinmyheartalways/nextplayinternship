@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(
 
 
 const client = new ApolloClient({
-   uri: 'http://3.15.232.45:3001/graphql',
+   uri: 'https://nextplayinternshipserver.onrender.com/graphql',
    cache: new InMemoryCache()
 })
 

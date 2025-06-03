@@ -8,9 +8,6 @@ import nodemailer from 'nodemailer';
 dotenv.config();
 
 const clientEmailSend = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT, 10),
-  secure: process.env.SMTP_SECURE === 'true',
   auth: {
     user: process.env.GMAIL_ACCOUNT,
     pass: process.env.GMAIL_PASSKEY,
