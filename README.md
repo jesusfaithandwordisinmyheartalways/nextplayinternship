@@ -34,7 +34,8 @@ Live Website: https://nextplayinternshipclient.onrender.com/
 
 
 SCREENSHOTS:
-![intenrship home page](https://github.com/user-attachments/assets/51fd7b7a-9cf0-409e-b71c-d6dba77b2fa8)
+![intenrship home page](https://github.com/user-attachments/assets/689fde26-909f-4942-889a-8c8693cc5a7d)
+
 
 
 ![intenrship mobile](https://github.com/user-attachments/assets/80c6e27a-f16b-4dca-9952-a0071aa6a192)
