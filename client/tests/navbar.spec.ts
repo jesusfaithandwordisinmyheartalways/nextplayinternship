@@ -1,11 +1,11 @@
 
 
 
-
+// navbar.spec.ts
 import { test, expect } from '@playwright/test';
 
-test('Homepage shows the logo image', async ({ page }) => {
+test('Navbar shows site logo', async ({ page }) => {
   await page.goto('https://nextplayinternshipclient.onrender.com');
   const logo = page.locator('img[alt="Next Play Nation Logo"]');
-  await expect(logo).toBeVisible(); // Verifies the logo image is visible
+  await expect(logo).toBeVisible();
 });
