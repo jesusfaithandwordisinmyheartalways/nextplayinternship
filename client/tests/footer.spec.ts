@@ -9,7 +9,7 @@ import { test, expect } from '@playwright/test';
 test('Footer is visible and has expected content', async ({ page }) => {
   await page.goto('https://nextplayinternshipclient.onrender.com');
 
-  const footer = page.locator('footer');
+  const footer = page.locator('.custom-footer-container');
   await expect(footer).toBeVisible();
 
   // Example: Check if footer contains text
