@@ -56,6 +56,9 @@ const MissionStatement: React.FC = () => {
     }
   }, [contentShown])
 
+
+  
+
   return (
     <div className='w-screen overflow-hidden bg-black p-3 custom-mission-container'>
       {/* 🔽 Title Section with Slide-Up Animation */}

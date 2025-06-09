@@ -22,17 +22,17 @@ const Footer:React.FC = () => {
         <div className=' w-screen overflow-hidden relative bottom-0 bg-gray-400 h-[210px] custom-footer-container'>
             <div className=' flex items-center justify-between mx-auto max-w-[1000px] custom-footer '>
 
-                <div className=' w-[20%] object-contain'><img src={data[0].image} alt=''></img></div>
+                <div className=' w-[20%] object-contain'><img src={data[0].image} alt=''  loading="lazy" ></img></div>
 
                 <div className=' flex gap-3 custom-footer-two '>
                     <div className='sm:text-lg md:text-xl lg:text-xl xl:text-xl  text-white font-serif custom-download-app '>Download our App</div>
 
                     <Link to="https://apps.apple.com/us/app/teamsideline/id1232007355">
-                    <div className=' w-[90px] object-contain cursor-pointer'><img src={data[0].googlePayImage} alt=''></img></div>
+                    <div className=' w-[90px] object-contain cursor-pointer'><img src={data[0].googlePayImage} alt=''  loading="lazy" ></img></div>
                     </Link>
 
                     <Link to="https://play.google.com/store/apps/details?id=com.teamsideline.teamsites&hl=en">
-                        <div className=' w-[90px] object-contain cursor-pointer'><img src={data[0].appleStoreImage} alt=''></img></div>
+                        <div className=' w-[90px] object-contain cursor-pointer'><img src={data[0].appleStoreImage} alt=''  loading="lazy"  ></img></div>
 
                     </Link>
 

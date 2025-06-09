@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
                 <div className='custom-navbar-wrapper p-3'>
                     <Link to="/">
                         <div className="cursor-pointer w-[130px] object-contain custom-logo-navbar">
-                            <img src={data?.[0]?.image || "/fallback-logo.png"} alt="Logo" />
+                            <img src={data?.[0]?.image || "/fallback-logo.png"} alt="Logo"  loading="lazy"  />
                         </div>
                     </Link>
 
