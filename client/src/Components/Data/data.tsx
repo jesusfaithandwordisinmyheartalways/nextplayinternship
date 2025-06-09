@@ -1,10 +1,10 @@
 
 
 import NPN_LOGO from '../Images/logo.png';
-import SPONSOR_IMAGE from '../Images/sponsor_image.png';
-import SPONSOR_IMAGE_TWO from '../Images/sponsor_image_two.png';
-import SPONSOR_IMAGE_THREE from '../Images/sponsor_image_three.png';
-import SPONSOR_IMAGE_FIVE from '../Images/sponsor_image_five.png';
+import SPONSOR_IMAGE from '../Images/Sponsor_image.png';
+import SPONSOR_IMAGE_TWO from '../Images/Sponsor_image_two.png';
+import SPONSOR_IMAGE_THREE from '../Images/Sponsor_image_three.png';
+import SPONSOR_IMAGE_FIVE from '../Images/Sponsor_image_five.png';
 import MISSION_IMAGE from '../Images/mission_image.png';
 import FEATURES_IMAGE from '../Images/features.png';
 import ABOUT_US_IMAGE from '../Images/about_us.png';
