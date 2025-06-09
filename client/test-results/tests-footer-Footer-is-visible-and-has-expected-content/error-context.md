@@ -6,16 +6,18 @@
 # Error details
 
 ```
-Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+Error: Timed out 5000ms waiting for expect(locator).toContainText(expected)
 
-Locator: locator('footer')
-Expected: visible
-Received: <element(s) not found>
+Locator: locator('.custom-footer-container')
+Expected string: "©"
+Received string: "Download our AppAdmin Login"
 Call log:
-  - expect.toBeVisible with timeout 5000ms
-  - waiting for locator('footer')
+  - expect.toContainText with timeout 5000ms
+  - waiting for locator('.custom-footer-container')
+    9 × locator resolved to <div class=" w-screen overflow-hidden relative bottom-0 bg-gray-400 h-[210px] custom-footer-container">…</div>
+      - unexpected value "Download our AppAdmin Login"
 
-    at /Users/andrewjohnson/InternshipNextPlayNation/client/tests/footer.spec.ts:13:24
+    at /Users/andrewjohnson/InternshipNextPlayNation/client/tests/footer.spec.ts:16:24
 ```
 
 # Page snapshot
@@ -76,11 +78,11 @@ Call log:
    9 | test('Footer is visible and has expected content', async ({ page }) => {
   10 |   await page.goto('https://nextplayinternshipclient.onrender.com');
   11 |
-  12 |   const footer = page.locator('footer');
-> 13 |   await expect(footer).toBeVisible();
-     |                        ^ Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+  12 |   const footer = page.locator('.custom-footer-container');
+  13 |   await expect(footer).toBeVisible();
   14 |
   15 |   // Example: Check if footer contains text
-  16 |   await expect(footer).toContainText('©'); // or specific footer text like '© 2025 Next Play Nation'
+> 16 |   await expect(footer).toContainText('©'); // or specific footer text like '© 2025 Next Play Nation'
+     |                        ^ Error: Timed out 5000ms waiting for expect(locator).toContainText(expected)
   17 | });
 ```

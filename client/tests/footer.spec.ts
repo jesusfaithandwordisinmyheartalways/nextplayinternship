@@ -12,6 +12,7 @@ test('Footer is visible and has expected content', async ({ page }) => {
   const footer = page.locator('.custom-footer-container');
   await expect(footer).toBeVisible();
 
-  // Example: Check if footer contains text
-  await expect(footer).toContainText('©'); // or specific footer text like '© 2025 Next Play Nation'
+ // ✅ These texts actually exist in your Footer component
+  await expect(footer).toContainText('Download our App');
+await expect(footer).toContainText('Admin Login');   
 });
