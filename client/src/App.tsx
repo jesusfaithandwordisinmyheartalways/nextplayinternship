@@ -43,6 +43,9 @@ import RecoverAdminLogin from './Pages/RecoverAdminLogin/RecoverAdminLogin';
 import DonateNextPlay from './Pages/DonateNextPlay/DonateNextPlay';
 import DonateSuccess from './Pages/DonateSuccess/DonateSuccess';
 import { AdminLoginStatusContext } from './Context/LoginStatusProvider';
+import FooterTwo from './Components/FooterTwo/FooterTwo';
+
+
 
 export interface Admin<T> {
   adminData: T;
@@ -51,6 +54,12 @@ export interface Admin<T> {
 const AdminData: Admin<string> = {
   adminData: 'Admin Login'
 };
+
+
+
+
+
+
 
 const App: React.FC = () => {
   const [scrollToTopButton, setScrollToButton] = useState(false);
@@ -206,6 +215,7 @@ const App: React.FC = () => {
         </div>
 
         <Footer />
+        <FooterTwo/>
 
         {scrollToTopButton && (
           <button onClick={scrollToTop} className="scroll-to-top">
