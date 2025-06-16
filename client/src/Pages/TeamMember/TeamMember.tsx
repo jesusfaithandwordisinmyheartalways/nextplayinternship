@@ -80,7 +80,7 @@ const TeamMember = () => {
           </div>
 
           <div className=' object-contain'>
-            <img src={data[0].missionImage} alt=''  loading="lazy" />
+            <img src={data[0].missionImage} alt='coach-tnt-image'  loading="lazy" className='w-[310px]'  />
           </div>
 
           <div className='w-[70%] text-center font-serif text-md p-10'>
@@ -96,7 +96,7 @@ const TeamMember = () => {
 
 
           <div className=' object-contain custom-bio-header'>
-            <img src={data[0].felixImage} alt=''  loading="lazy" />
+            <img src={data[0].felixImage} alt='coach-tnt-image'   loading="lazy" className='w-[310px]' />
             <div className=' w-70% font-sans text-center text-black font-bold'><h3>Felix Joyner</h3></div>
             <div className=' w-70% font-sans text-center text-black font-bold'><h3> Athlete Mentor</h3></div>
             <div className=' w-70% font-sans text-center text-yellow-500'><h3>Youth Advocate</h3></div>
@@ -117,7 +117,7 @@ const TeamMember = () => {
 
 
           <div className=' object-contain custom-bio-header'>
-            <img src={data[0].tdImage} alt=''  loading="lazy" />
+            <img src={data[0].tdImage} alt='coach-tnt-image'  loading="lazy" className='w-[310px]' />
             <div className=' w-70% font-sans text-center text-black font-bold'><h3>Coach TNT</h3></div>
             <div className=' w-70% font-sans text-center text-black font-bold'><h3> Tony “Terror in the Trenches</h3></div>
               <div className=' w-[100%] font-sans text-center sm:text-lg md:text-lg lg:text-md xl:text-md'>
