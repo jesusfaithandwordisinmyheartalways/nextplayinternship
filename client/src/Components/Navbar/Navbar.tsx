@@ -156,7 +156,7 @@ const Navbar: React.FC = () => {
                 <div className="mobile-navbar-wrapper">
                     <div className="mobile-header">
                         <Link to="/">
-                            <img src={data?.[0]?.image || "/fallback-logo.png"} alt="Logo" className="mobile-logo" />
+                            <img src={data?.[0]?.image || "/fallback-logo.png"} alt="Logo" className="mobile-logo"  loading="lazy"  />
                         </Link>
                         <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="mobile-menu-button">
                             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}

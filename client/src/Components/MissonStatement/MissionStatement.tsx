@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import './MissionStatement.css'
 import { data } from '../Data/data'
 
+
+
+
 const MissionStatement: React.FC = () => {
   const [animateTitle, setAnimateTitle] = useState(false)
   const [titleShown, setTitleShown] = useState(false)
@@ -59,6 +62,9 @@ const MissionStatement: React.FC = () => {
 
   
 
+
+
+  
   return (
     <div className='w-screen overflow-hidden bg-black p-3 custom-mission-container'>
       {/* 🔽 Title Section with Slide-Up Animation */}

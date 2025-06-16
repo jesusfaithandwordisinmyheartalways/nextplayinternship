@@ -79,7 +79,7 @@ const TeamMember = () => {
             <span>Jerrit Judie</span>
           </div>
 
-          <div className='w-[25%] object-contain'>
+          <div className=' object-contain'>
             <img src={data[0].missionImage} alt=''  loading="lazy" />
           </div>
 
@@ -95,7 +95,7 @@ const TeamMember = () => {
 
 
 
-          <div className='w-[21%] object-contain custom-bio-header'>
+          <div className=' object-contain custom-bio-header'>
             <img src={data[0].felixImage} alt=''  loading="lazy" />
             <div className=' w-70% font-sans text-center text-black font-bold'><h3>Felix Joyner</h3></div>
             <div className=' w-70% font-sans text-center text-black font-bold'><h3> Athlete Mentor</h3></div>
@@ -116,7 +116,7 @@ const TeamMember = () => {
 
 
 
-          <div className='w-[21%] object-contain custom-bio-header'>
+          <div className=' object-contain custom-bio-header'>
             <img src={data[0].tdImage} alt=''  loading="lazy" />
             <div className=' w-70% font-sans text-center text-black font-bold'><h3>Coach TNT</h3></div>
             <div className=' w-70% font-sans text-center text-black font-bold'><h3> Tony “Terror in the Trenches</h3></div>
