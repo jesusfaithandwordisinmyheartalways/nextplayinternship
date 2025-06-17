@@ -37,13 +37,19 @@ import eventRegisterErrorRoutes from './errorLogData/eventRegisterErrorLog.js';
 import inquiryErrorRoutes from './errorLogData/generalInquiriesErrorLog.js';
 import adminLoginRecoveryErrorRoutes from './errorLogData/adminEmailRecoverErrorLog.js';
 
+
+import app from './appTest.js'
+
+
+
+
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
 
-const app = express();
+
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {

@@ -9,3 +9,8 @@ test('Homepage shows the logo image', async ({ page }) => {
   const logo = page.locator('img[alt="Next Play Nation Logo"]');
   await expect(logo).toBeVisible(); // Verifies the logo image is visible
 });
+
+
+
+
+
