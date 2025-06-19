@@ -159,7 +159,7 @@ const App: React.FC = () => {
   return (
     <>
       <div className="app-container">
-      {authChecked && (!isAdmin || (isAdmin && location.pathname !== '/admin-dashboard')) && <Navbar />}
+       {(!isAdmin || (isAdmin && location.pathname !== '/admin-dashboard')) && <Navbar />}
 
         <div className="content" id="top-page">
           <Routes>
@@ -197,7 +197,7 @@ const App: React.FC = () => {
             <Route path='/photo' element={<VideoGallery />} />
             <Route path='/admin' element={<Admin />} />
             
-                          <Route
+             <Route
                 path="/admin-dashboard"
                 element={
                   authChecked ? (
@@ -230,5 +230,9 @@ const App: React.FC = () => {
   );
   
 };
+
+
+
+
 
 export default App;
