@@ -38,10 +38,7 @@ import inquiryErrorRoutes from './errorLogData/generalInquiriesErrorLog.js';
 import adminLoginRecoveryErrorRoutes from './errorLogData/adminEmailRecoverErrorLog.js';
 
 
-import appProd from './app.js';
-import appTest from './appTest.js';
-
-const app = process.env.NODE_ENV === 'test' ? appTest : appProd;
+const app = express();
 
 
 
@@ -182,21 +179,23 @@ startApolloServer();
 
 
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.get('/', (req, res) => {
+  res.end('backend server');
+});
+
+
+
+
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
 
 
-
-
-app.get('/', (req, res) => {
-  res.end('backend server');
-});
 
 
 
