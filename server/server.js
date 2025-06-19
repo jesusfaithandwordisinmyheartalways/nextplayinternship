@@ -38,7 +38,11 @@ import inquiryErrorRoutes from './errorLogData/generalInquiriesErrorLog.js';
 import adminLoginRecoveryErrorRoutes from './errorLogData/adminEmailRecoverErrorLog.js';
 
 
-import app from './appTest.js'
+import appProd from './app.js';
+import appTest from './appTest.js';
+
+const app = process.env.NODE_ENV === 'test' ? appTest : appProd;
+
 
 
 
