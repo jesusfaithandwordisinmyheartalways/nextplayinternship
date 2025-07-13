@@ -24,7 +24,7 @@ const clientDonateEmail = nodemailer.createTransport({
 
 
 
-clientDonateEmail .verify((error, success) => {
+clientDonateEmail.verify((error, success) => {
     if (error) {
         console.error('Nodemailer connection failed:', error);
     } else {

@@ -169,12 +169,30 @@
   cursor: pointer;
 }
 
+
+
+
+
+
+
+
 /* ---------------------MOBILE SCREEN  MAX-420px---------- ---------------*/
+
+
 @media screen and (max-width: 420px) {
+
+
+
+
+
+
+  
   .custom-navbar-container {
     display: none;
   }
 
+
+  
   .mobile-navbar-wrapper {
     display: block;
     background: wheat;

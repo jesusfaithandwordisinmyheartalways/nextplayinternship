@@ -187,9 +187,6 @@ app.get('/', (req, res) => {
 
 
 app.use(express.static(path.join(__dirname, '../client/build')));
-
-
-
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
@@ -203,5 +200,5 @@ app.get('*', (req, res) => {
 
 const PORT = process.env.PORT;
 server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server is live on port ${PORT}`);
 });

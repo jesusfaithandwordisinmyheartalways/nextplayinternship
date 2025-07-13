@@ -1,6 +1,3 @@
-
-
-
 import React, { useState, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -9,39 +6,32 @@ import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import { socket } from '../../utils/socket';
 
-
-
-
 const Events: React.FC = () => {
   const [events, setEvents] = useState<any[]>([]);
 
-
-  
-
-
   const fetchEvents = async () => {
-    const res = await fetch('https://nextplayinternshipserver.onrender.com/calendar-events');
-    const data = await res.json();
-    setEvents(data);
+    try {
+      const res = await fetch('https://nextplayinternshipserver.onrender.com/calendar/calendar-events');
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        setEvents(data);
+      } else {
+        console.error('Unexpected response:', data);
+      }
+    } catch (err) {
+      console.error('Fetch failed:', err);
+    }
   };
-
-
-
-
 
   useEffect(() => {
     fetchEvents();
     socket.on('calendarChange', fetchEvents);
 
     return () => {
-      socket.off('calendarChange');
+      socket.off('calendarChange', fetchEvents);
     };
   }, []);
 
-
-
-
-  // Tooltip on hover to show description
   const handleEventDidMount = (info: any) => {
     if (info.event.extendedProps.description) {
       const tooltip = document.createElement('div');
@@ -73,14 +63,8 @@ const Events: React.FC = () => {
     }
   };
 
-
-
-
-
-
   return (
-    <div className=' custom-event-container '>
-      
+    <div className='custom-event-container'>
       <h1 className="text-xl font-bold mb-4">Upcoming Events</h1>
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
@@ -93,14 +77,8 @@ const Events: React.FC = () => {
           end: 'dayGridMonth,timeGridWeek,listWeek',
         }}
       />
-
-
     </div>
   );
 };
-
-
-
-
 
 export default Events;

@@ -1,37 +1,17 @@
-
-
-
-
-
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { AdminLoginStatusContext } from '../../Context/LoginStatusProvider';
 import { io } from 'socket.io-client';
 import { getCookie } from '../../utils/cookies';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './AdminDashboard.css'
-
-
-
-
-
-
-const socket = io('https://nextplayinternshipserver.onrender.com');
-
-
+import './AdminDashboard.css';
 
 interface AdminPanel {
-  panel?:String;
+  panel?: string;
 }
 
-
-const admin:AdminPanel = {
+const admin: AdminPanel = {
   panel: 'NEXT PLAY NATION ADMIN PANEL'
-}
-
-
-
-
-
+};
 
 const AdminDashboard: React.FC = () => {
   const navigate = useNavigate();
@@ -40,7 +20,7 @@ const AdminDashboard: React.FC = () => {
   const { logout } = useContext(AdminLoginStatusContext);
   const [errorMessage, setErrorMessage] = useState('');
   const [allEvents, setAllEvents] = useState<any[]>([]);
-  const [editingId, setEditingId] = useState<string | null>(null); // ✅ New
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     title: '',
     start: '',
@@ -48,28 +28,18 @@ const AdminDashboard: React.FC = () => {
     description: ''
   });
 
-
-
-
   const token = getCookie('adminToken');
-
-
+  const socketRef = useRef<ReturnType<typeof io> | null>(null);
 
   const fetchAll = async () => {
-    const res = await fetch('https://nextplayinternshipserver.onrender.com/calendar/calendar-events');
-    const data = await res.json();
-    setAllEvents(data);
+    try {
+      const res = await fetch('https://nextplayinternshipserver.onrender.com/calendar/calendar-events');
+      const data = await res.json();
+      setAllEvents(data);
+    } catch (err) {
+      await AdminDashboardClientError('Fetch All Events Failed', err);
+    }
   };
-
-
-
-
-
-  
-
-
-
-
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -90,14 +60,7 @@ const AdminDashboard: React.FC = () => {
       }
     };
     checkAuth();
-
-    
   }, []);
-
-
-
-
-
 
   useEffect(() => {
     const lastVisited = localStorage.getItem('lastRoute');
@@ -110,6 +73,9 @@ const AdminDashboard: React.FC = () => {
       setIsAuthenticated(true);
     }
 
+    const socket = io('http:localhost:3001');
+    socketRef.current = socket;
+
     fetchAll();
 
     socket.on('calendarChange', () => {
@@ -120,40 +86,26 @@ const AdminDashboard: React.FC = () => {
     return () => {
       socket.off('calendarChange');
       socket.disconnect();
+      console.log('Socket disconnected on unmount');
     };
   }, []);
 
-
-
-
-
-
-
-    // Client Side function  Logs client-side errors to the backend , Keeps the UI secure with a generic message.
-
-
-    const AdminDashboardClientError = async (errorType:string, errorDetail: any) => {
-      try {
-        await fetch('https://nextplayinternshipserver.onrender.com/admin-dashboard-client-error', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            type: errorType,
-            message: (errorDetail as Error)?.message || 'Unknown error',
-            stack: (errorDetail as Error)?.stack || '',
-            time: new Date().toISOString()
-          })
-        });
-
-      }catch(err) {
-        console.warn('Error sending log to server:', err);
-
-      }
-    };
-
-
-
-
+  const AdminDashboardClientError = async (errorType: string, errorDetail: any) => {
+    try {
+      await fetch('https://nextplayinternshipserver.onrender.com/admin-dashboard-client-error', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: errorType,
+          message: (errorDetail as Error)?.message || 'Unknown error',
+          stack: (errorDetail as Error)?.stack || '',
+          time: new Date().toISOString()
+        })
+      });
+    } catch (err) {
+      console.warn('Error sending log to server:', err);
+    }
+  };
 
   const handleAdd = async () => {
     if (!formData.start || !formData.end) {
@@ -186,16 +138,12 @@ const AdminDashboard: React.FC = () => {
 
       setFormData({ title: '', start: '', end: '', description: '' });
       setErrorMessage('');
-      socket.emit('calendarChange');
+      socketRef.current?.emit('calendarChange');
     } catch (err) {
       await AdminDashboardClientError('Add Event Failed', err);
       setErrorMessage('Something went wrong. Please try again.');
     }
   };
-
-
-
-
 
   const handleUpdate = async () => {
     if (!editingId) return;
@@ -218,7 +166,7 @@ const AdminDashboard: React.FC = () => {
       setEditingId(null);
       setFormData({ title: '', start: '', end: '', description: '' });
       setErrorMessage('');
-      socket.emit('calendarChange');
+      socketRef.current?.emit('calendarChange');
       fetchAll();
     } catch (err) {
       console.error(err);
@@ -226,23 +174,21 @@ const AdminDashboard: React.FC = () => {
     }
   };
 
-
-
-
   const handleDelete = async (id: string) => {
-    await fetch(`https://nextplayinternshipserver.onrender.com/calendar/delete-event/${id}`, {
-      method: 'DELETE',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({ id }),
-    });
-    socket.emit('calendarChange');
-    fetchAll();
+    try {
+      await fetch(`https://nextplayinternshipserver.onrender.com/calendar/delete-event/${id}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ id }),
+      });
+      socketRef.current?.emit('calendarChange');
+      fetchAll();
+    } catch (err) {
+      await AdminDashboardClientError('Delete Event Failed', err);
+    }
   };
-
-
-
 
   const adminLogout = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -266,30 +212,20 @@ const AdminDashboard: React.FC = () => {
         setErrorMessage(data.message || 'Admin Logout Failed. Please try again.');
       }
     } catch (error) {
-      await AdminDashboardClientError('Add Event Failed', error);
+      await AdminDashboardClientError('Admin Logout Failed', error);
       setErrorMessage('Admin Logout Failed. Please try again');
     }
   };
 
-
-
-
-
-
-
-
-  
-
-
   return (
     <>
-        <div className='w-screen overflow-hidden p-10 custom-admin-dashboard-container '>
-          <div className=' flex items-center justify-center mx-auto max-w-[800px]'>
-          <div className=' sm:text-lg md:text-lg lg:text-3xl xl:text-3xl font-sans font-bold'><h3>{admin.panel}</h3></div>
+      <div className='w-screen overflow-hidden p-10 custom-admin-dashboard-container '>
+        <div className='flex items-center justify-center mx-auto max-w-[800px]'>
+          <div className='sm:text-lg md:text-lg lg:text-3xl xl:text-3xl font-sans font-bold'>
+            <h3>{admin.panel}</h3>
           </div>
         </div>
-
-
+      </div>
 
       <div className="p-5">
         <h1 className="sm:text-lg md:text-xl lg:text-xl xl:text-xl mb-2 font-bold">Manage Events</h1>
@@ -323,11 +259,9 @@ const AdminDashboard: React.FC = () => {
           onChange={(e) => setFormData({ ...formData, description: e.target.value })}
         />
 
-        <button className="bg-green-500 text-white p-2 m-1 hover:bg-green-700" onClick={editingId ? handleUpdate : handleAdd} >      
-               {editingId ? 'Update Event' : 'Add Event'}
+        <button className="bg-green-500 text-white p-2 m-1 hover:bg-green-700" onClick={editingId ? handleUpdate : handleAdd}>
+          {editingId ? 'Update Event' : 'Add Event'}
         </button>
-
-
 
         <ul className="mt-4">
           {allEvents.map((event: any) => (
@@ -340,17 +274,23 @@ const AdminDashboard: React.FC = () => {
               )}
 
               <div className="flex gap-2 mt-1">
-                <button className="bg-red-500 text-white w-[21%] px-2 hover:bg-black" onClick={() => handleDelete(event._id)} >
-                        Delete
+                <button className="bg-red-500 text-white w-[21%] px-2 hover:bg-black" onClick={() => handleDelete(event._id)}>
+                  Delete
                 </button>
 
-                <button className="bg-blue-500 text-white px-2 w-[21%] hover:bg-yellow-500"  onClick={() => { setEditingId(event._id);
-                    setFormData({ title: event.title, start: new Date(event.start).toISOString().slice(0, 16),
+                <button
+                  className="bg-blue-500 text-white px-2 w-[21%] hover:bg-yellow-500"
+                  onClick={() => {
+                    setEditingId(event._id);
+                    setFormData({
+                      title: event.title,
+                      start: new Date(event.start).toISOString().slice(0, 16),
                       end: new Date(event.end).toISOString().slice(0, 16),
                       description: event.description || '',
                     });
-                  }} > 
-                    Edit
+                  }}
+                >
+                  Edit
                 </button>
               </div>
             </li>
@@ -358,21 +298,16 @@ const AdminDashboard: React.FC = () => {
         </ul>
       </div>
 
-
-
       <div className="w-screen overflow-hidden flex justify-center">
         <form onSubmit={adminLogout}>
-          <button className="bg-yellow-400 text-white p-3 w-[80%] hover:bg-green-500" type="submit">  Admin Logout  </button>
-               <div>{errorMessage && <div>{errorMessage}</div>}</div>
+          <button className="bg-yellow-400 text-white p-3 w-[80%] hover:bg-green-500" type="submit">
+            Admin Logout
+          </button>
+          <div>{errorMessage && <div>{errorMessage}</div>}</div>
         </form>
       </div>
-
-
-
     </>
   );
 };
-
-
 
 export default AdminDashboard;
